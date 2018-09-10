@@ -51,6 +51,7 @@ fi
 if [ "$make_clean" = "yes" ];
 then
 rm -rf out/target/product/osprey
+#make Clean
 wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
@@ -60,12 +61,12 @@ export KBUILD_BUILD_USER="SubinsMani"
 export KBUILD_BUILD_HOST="TheBoss"
 
 # For Official Build
-export CUSTOM_BUILD_TYPE=OFFICIAL
+export PIXYS_BUILD_TYPE=OFFICIAL
 
 #To enable DEXPREOPT
 export WITH_DEXPREOPT=true
 
 # Build ROM
 . build/envsetup.sh
-lunch aosp_osprey-userdebug
-mka bacon -j8
+lunch pixys_osprey-userdebug
+mka pixys -j8
