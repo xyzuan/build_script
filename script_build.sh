@@ -62,6 +62,7 @@ export KBUILD_BUILD_HOST="TheBoss"
 
 # For Official Build
 export PIXYS_BUILD_TYPE=OFFICIAL
+export DEVICE_MAINTAINERS="Subins Mani"
 
 #To enable DEXPREOPT
 export WITH_DEXPREOPT=true
