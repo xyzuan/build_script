@@ -9,7 +9,7 @@
 # Some User's Details. Please fill it with your own details.
 
 # Replace "legacy" with your own SSH Username in lowercase
-username=subin
+username=subins
 
 # Assign values to parameters used in Script from Jenkins Job parameters
 use_ccache="$1"
@@ -50,7 +50,7 @@ fi
 # Its Clean Time
 if [ "$make_clean" = "yes" ];
 then
-rm -rf out/target/product/osprey
+rm -rf out/target/product/*
 #make Clean
 wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
@@ -69,5 +69,5 @@ export WITH_DEXPREOPT=true
 
 # Build ROM
 . build/envsetup.sh
-lunch pixys_osprey-userdebug
+lunch pixys_X00TD-userdebug
 mka pixys -j8
