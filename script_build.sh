@@ -32,17 +32,19 @@ export TERM=xterm
 if [ "$use_ccache" = "yes" ];
 then
 echo -e ${blu}"CCACHE is enabled for this build"${txtrst}
+export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
 export CCACHE_DIR=/home/ccache/$username
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
+ccache -M 50G
 fi
 
 if [ "$use_ccache" = "clean" ];
 then
+export CCACHE_EXEC=$(which ccache)
 export CCACHE_DIR=/home/ccache/$username
 ccache -C
 export USE_CCACHE=1
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
+ccache -M 50G
 wait
 echo -e ${grn}"CCACHE Cleared"${txtrst};
 fi
@@ -56,18 +58,14 @@ wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
 
-# To add HostName
 export KBUILD_BUILD_USER="SubinsMani"
 export KBUILD_BUILD_HOST="TheBoss"
-
-# For Official Build
 export PIXYS_BUILD_TYPE=OFFICIAL
 export DEVICE_MAINTAINERS="Subins Mani"
-
-#To enable DEXPREOPT
-export WITH_DEXPREOPT=true
+export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
+export BUILD_WITH_GAPPS=true
 
 # Build ROM
 . build/envsetup.sh
 lunch pixys_X00TD-userdebug
-mka pixys -j8
+mka pixys -j24
