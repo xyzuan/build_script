@@ -69,3 +69,5 @@ export BUILD_WITH_GAPPS=true
 . build/envsetup.sh
 lunch pixys_X00TD-userdebug
 mka pixys -j24
+
+gdrive upload out/target/product/X00TD/P*.zip
