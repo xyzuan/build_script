@@ -68,6 +68,6 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 # Build ROM
 . build/envsetup.sh
 lunch aosap_X00TD-userdebug
-mka pixys -j8
+mka bacon -j8
 
 gdrive upload out/target/product/${device}/A*.zip
