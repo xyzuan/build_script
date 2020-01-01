@@ -34,14 +34,14 @@ then
 echo -e ${blu}"CCACHE is enabled for this build"${txtrst}
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
-export CCACHE_DIR=/home/cache/$username
+export CCACHE_DIR=/home/ccache/$username
 ccache -M 50G
 fi
 
 if [ "$use_ccache" = "clean" ];
 then
 export CCACHE_EXEC=$(which ccache)
-export CCACHE_DIR=/home/cache/$username
+export CCACHE_DIR=/home/ccache/$username
 ccache -C
 export USE_CCACHE=1
 ccache -M 50G
@@ -60,14 +60,14 @@ fi
 
 export KBUILD_BUILD_USER="SubinsMani"
 export KBUILD_BUILD_HOST="TheBoss"
-export PIXYS_BUILD_TYPE=OFFICIAL
-export DEVICE_MAINTAINERS="Subins Mani"
+#export PIXYS_BUILD_TYPE=OFFICIAL
+#export DEVICE_MAINTAINERS="Subins Mani"
 export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
-export BUILD_WITH_GAPPS=true
+export SELINUX_IGNORE_NEVERALLOWS=true
 
 # Build ROM
 . build/envsetup.sh
-lunch pixys_${device}-userdebug
-mka pixys -j24
+lunch aosap_X00TD-userdebug
+mka pixys -j8
 
-gdrive upload out/target/product/${device}/P*.zip
+gdrive upload out/target/product/${device}/A*.zip
