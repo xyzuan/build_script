@@ -69,5 +69,3 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 . build/envsetup.sh
 lunch aosap_X00TD-userdebug
 mka bacon -j8
-
-gdrive upload out/target/product/${device}/A*.zip
